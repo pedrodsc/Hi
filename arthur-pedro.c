@@ -12,17 +12,28 @@
 #include "pcblib.h"
 
 int main (void) {
-	unsigned int n,i;
-	char matrizCaca[tam][tam], nomesCaca;
+	unsigned int n, i,j, qtdDeNomes;
+	char matrizCaca[tam][tam], nomesCaca[tam][tam];
+	palavra nomes[tam];
 	
 	FILE *caca;
 	FILE *words;
 	caca = fopen("palavras.txt", "r");
 	words = fopen("words.txt", "r");
-	
+
 	n = carregaNaMemoria(caca,matrizCaca);
 	retiraEspacos(matrizCaca);
+	
+	qtdDeNomes = carregaNaMemoria(words,nomesCaca);
+	
+	for(i = 0; i < qtdDeNomes; i++){
+		for(j = 0; j < tam; j++){
+			nomes[i].nome[j] = nomesCaca[i][j];
+			
+		}
+	}
+	
 	for(i = 0; i < n; i++)
-		printf("%s\n", matrizCaca[i]);
+		printf("%s", nomes[i].nome);
 	
 }

@@ -3,16 +3,16 @@
 
 #define tam	50
 
-typedef struct{
+typedef struct coordenada{
 	unsigned int x;
 	unsigned int y;
 } coordenada;
 
-typedef struct{
+typedef struct palavra{
 	char nome[tam];
 	int custo;
 	unsigned int ocorrencias;
-	coordenada pos[10];
+	coordenada pos[tam];
 } palavra;
 
 int carregaNaMemoria(FILE *arquivo, char m[tam][tam]){
@@ -25,6 +25,35 @@ int carregaNaMemoria(FILE *arquivo, char m[tam][tam]){
 		fgets(&m[i][0],tam,arquivo);
 	}
 	return numero;
+}
+
+void analinsaEsqDir(char matrizCaca[tam][tam], struct palavra *nome, unsigned int tamanho){
+	unsigned int x, y, xi, tamanhoDaPalavra, tempx, tempy, ocorrencias;
+	tamanhoDaPalavra = strlen(nome->nome); 
+	for(y = 0; y < tamanho; y++){
+		for(x = 0; x < tamanho; x++){
+			if(tamanho - x >= tamanhoDaPalavra){
+				if(matrizCaca[y][x] == nome->nome[0]){
+					tempx = x;
+					tempy = y;
+					for(xi = 0; xi < tamanhoDaPalavra; xi++){
+						if(matrizCaca[y][x+xi] == nome->nome[xi])
+							continue;
+						else
+							break;
+					}
+					if(xi == tamanhoDaPalavra){
+						ocorrencias = nome->ocorrencias;
+						nome->pos[ocorrencias].x = tempx;
+						nome->pos[ocorrencias].y = tempy;
+						nome->ocorrencias += 1;
+					}
+				}
+				else
+					break;
+			}
+		}
+	}
 }
 
 void retiraEspacos(char m[tam][tam]){
@@ -43,4 +72,5 @@ void retiraEspacos(char m[tam][tam]){
 		for(j = 0; j < tam; j++)
 			m[i][j] = n[i][j];	
 }
+
 #endif
