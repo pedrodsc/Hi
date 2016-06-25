@@ -17,10 +17,15 @@ typedef struct{
 	coordenada pos[10];
 } palavra;
 
-void carregaNaMemoria(FILE *arquivo, char *m[][tam]){
-	FILE *caca;
-	caca = fopen(arquivo1, 'r');
+int carregaNaMemoria(FILE *arquivo, char *m[][tam]){
+	unsigned int numero,i;
+	char tamanho[tam], *ptr;
 	
-	
+	fgets(tamanho, tam, arquivo);
+	numero = (int) strtol(tamanho,&ptr,10);
+	for(i = 0; i < numero; i++){
+		fgets(m[i][0],tam,arquivo)
+	}
+	return numero;
 }
 #endif

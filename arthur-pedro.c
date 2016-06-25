@@ -13,14 +13,13 @@
 #include "pcblib.h"
 
 int main (void) {
-	
+	unsigned int n;
 	char cacaPalavra[tamanhoDosVetores][tamanhoDosVetores];
 	
-	FILE *lista;
-
+	FILE *caca;
+	caca = fopen(arquivo1, 'r');
 	
-	
-	
-	
+	n = carregaNaMemoria()
+	printf("");
 	
 }
