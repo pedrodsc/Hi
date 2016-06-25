@@ -33,7 +33,9 @@ int main (void) {
 		}
 	}
 	
-	for(i = 0; i < n; i++)
-		printf("%s", nomes[i].nome);
+	analisaEsqDir(matrizCaca,&nomes[0],n);
+	
+	//for(i = 0; i < n; i++)
+		printf("%s ocorrências:%i\nx = %i e y = %i", nomes[0].nome, nomes[0].ocorrencias, nomes[0].pos[0].x,nomes[0].pos[0].y);
 	
 }
