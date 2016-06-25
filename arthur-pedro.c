@@ -1,4 +1,3 @@
-//meu nome é zé pikeno
 /*
 	TRABALHO COMPUTACIONAL 2 - ELÉTRICA 2016/1
 	
@@ -13,13 +12,17 @@
 #include "pcblib.h"
 
 int main (void) {
-	unsigned int n;
-	char cacaPalavra[tamanhoDosVetores][tamanhoDosVetores];
+	unsigned int n,i;
+	char matrizCaca[tam][tam], nomesCaca;
 	
 	FILE *caca;
-	caca = fopen(arquivo1, 'r');
+	FILE *words;
+	caca = fopen("palavras.txt", "r");
+	words = fopen("words.txt", "r");
 	
-	n = carregaNaMemoria()
-	printf("");
+	n = carregaNaMemoria(caca,matrizCaca);
+	retiraEspacos(matrizCaca);
+	for(i = 0; i < n; i++)
+		printf("%s\n", matrizCaca[i]);
 	
 }
