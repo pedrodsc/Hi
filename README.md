@@ -1,4 +1,3 @@
 Welcome!!
 ==
-eu nunca entendi pra q serve essa bosta aki
-https://www.youtube.com/watch?v=EP0rH8IR22c
+Eu e o doido do Arthur aqui.
