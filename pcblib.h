@@ -28,7 +28,7 @@ int carregaNaMemoria(FILE *arquivo, char m[tam][tam]){
 }
 
 void analisa(char matrizCaca[tam][tam], struct palavra *nome, unsigned int tamanho){
-	unsigned int l, c, ci, tamanhoDaPalavra, tempx, tempy, ocorrencias;
+	unsigned int l, c, ci, tamanhoDaPalavra;
 	tamanhoDaPalavra = strlen(nome->nome);
 	printf("Tamanho da palavra - %i\n",tamanhoDaPalavra);
 	

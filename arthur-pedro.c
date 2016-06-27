@@ -30,13 +30,17 @@ int main (void) {
 		for(j = 0; j < tam; j++){
 			nomes[i].nome[j] = nomesCaca[i][j];
 			
-		}
+		}		
 	}
 	
 	for(i = 0 ; i < 9; i++)
-		analisa(matrizCaca,&nomes[i],n);
+		analisa(matrizCaca,&nomes[i],n);	
 	for(i = 0; i < 9; i++){
-		printf("%s ocorrências:%i\nl = %i e c = %i\n", nomes[i].nome, nomes[i].ocorrencias, nomes[i].pos[0].l,nomes[0].pos[0].c);
+		printf("%i\n",i);
+		printf("%s ocorrências:%i\nl = %i e c = %i\n", nomes[i].nome, nomes[i].ocorrencias, nomes[i].pos[0].l,nomes[i].pos[0].c);
+		if(nomes[i].ocorrencias > 1)
+			for(j = 0; j < nomes[i].ocorrencias; j++)
+				printf("l = %i c = %i\n",nomes[i].pos[j].l, nomes[i].pos[j].c);
 		
 	}
 }
