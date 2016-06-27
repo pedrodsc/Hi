@@ -27,23 +27,19 @@ int carregaNaMemoria(FILE *arquivo, char m[tam][tam]){
 	return numero;
 }
 
-void analisaEsqDir(char matrizCaca[tam][tam], struct palavra *nome, unsigned int tamanho){
+void analisa(char matrizCaca[tam][tam], struct palavra *nome, unsigned int tamanho){
 	unsigned int l, c, ci, tamanhoDaPalavra, tempx, tempy, ocorrencias;
 	tamanhoDaPalavra = strlen(nome->nome);
 	printf("Tamanho da palavra - %i\n",tamanhoDaPalavra);
-	/*
+	
 	// ANALISA DA ESQUERDA PARA A DIREITA.
 	for(l = 0; l < tamanho; l++){
 		for(c = 0; c < tamanho; c++){
-			printf("Linha: %i, Coluna: %i\n",l,c);
 			if(tamanho - c >= tamanhoDaPalavra - 1){
 				while(nome->nome[ci] == matrizCaca[l][c+ci]){
 					ci++;
-					printf("Entrei no loop interno - %i\n",ci);
 				} 
-				printf("Valor de ci pios loop - %i\n",ci);
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
-					printf("Comparações feitas\n");
 					nome->pos[nome->ocorrencias].l = l;
 					nome->pos[nome->ocorrencias].c = c;
 					nome->ocorrencias++;
@@ -51,20 +47,16 @@ void analisaEsqDir(char matrizCaca[tam][tam], struct palavra *nome, unsigned int
 				ci = 0;
 			}
 		}
-	}*/
+	}
 	// ---------------------------------
 	// ANALISA DA DIREITA PARA A ESQUERDA
-	/*for(l = 0; l < tamanho; l++){
+	for(l = 0; l < tamanho; l++){
 		for(c = tamanho; c > 0; c--){
-			printf("Linha: %i, Coluna: %i\n",l,c);
 			if(c - tamanho >= tamanhoDaPalavra - 1){
 				while(nome->nome[ci] == matrizCaca[l][c-ci]){
 					ci++;
-					printf("Entrei no loop interno - %i\n",ci);
 				} 
-				printf("Valor de ci pios loop - %i\n",ci);
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
-					printf("Comparações feitas\n");
 					nome->pos[nome->ocorrencias].l = l;
 					nome->pos[nome->ocorrencias].c = c;
 					nome->ocorrencias++;
@@ -72,20 +64,33 @@ void analisaEsqDir(char matrizCaca[tam][tam], struct palavra *nome, unsigned int
 				ci = 0;
 			}
 		}
-	}*/
+	}
 	// -----------------------------
 	// ANALISA DE CIMA PARA BAIXO
 	for(c = 0; c < tamanho; c++){
 		for(l = 0; l < tamanho; l++){
-			printf("Linha: %i, Coluna: %i\n",l,c);
 			if(tamanho - l >= tamanhoDaPalavra - 1){
-				while(nome->nome[ci] == matrizCaca[c][c+ci]){
+				while(nome->nome[ci] == matrizCaca[c+ci][l]){
 					ci++;
-					printf("Entrei no loop interno - %i\n",ci);
 				} 
-				printf("Valor de ci pios loop - %i\n",ci);
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
-					printf("Comparações feitas\n");
+					nome->pos[nome->ocorrencias].l = c;
+					nome->pos[nome->ocorrencias].c = l;
+					nome->ocorrencias++;
+				}
+				ci = 0;
+			}
+		}
+	}
+	// -----------------------------
+	// ANALISA DE BAIXO PARA CIMA
+	for(c = 0; c < tamanho; c++){
+		for(l = tamanho; l > 0; l--){
+			if(l - tamanho >= tamanhoDaPalavra - 1){
+				while(nome->nome[ci] == matrizCaca[l-ci][c]){
+					ci++;
+				} 
+				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
 					nome->pos[nome->ocorrencias].l = l;
 					nome->pos[nome->ocorrencias].c = c;
 					nome->ocorrencias++;

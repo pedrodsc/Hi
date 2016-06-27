@@ -33,11 +33,10 @@ int main (void) {
 		}
 	}
 	
-	//analisaEsqDir(matrizCaca,&nomes[0],n);
 	i = 0;
-	//for(i = 0; i < n; i++){
-		analisaEsqDir(matrizCaca,&nomes[i],n);
-		printf("%s ocorrências:%i\nl = %i e c = %i\n", nomes[i].nome, nomes[i].ocorrencias, nomes[i].pos[0].l,nomes[i].pos[0].c);
+	analisa(matrizCaca,&nomes[i],n);
+	for(i = 0; i < 4; i++){
+		printf("%s ocorrências:%i\nl = %i e c = %i\n", nomes[0].nome, nomes[0].ocorrencias, nomes[0].pos[i].l,nomes[0].pos[i].c);
 		
-	//}
+	}
 }
