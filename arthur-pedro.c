@@ -33,10 +33,10 @@ int main (void) {
 		}
 	}
 	
-	i = 0;
-	analisa(matrizCaca,&nomes[i],n);
-	for(i = 0; i < 4; i++){
-		printf("%s ocorrências:%i\nl = %i e c = %i\n", nomes[0].nome, nomes[0].ocorrencias, nomes[0].pos[i].l,nomes[0].pos[i].c);
+	for(i = 0 ; i < 9; i++)
+		analisa(matrizCaca,&nomes[i],n);
+	for(i = 0; i < 9; i++){
+		printf("%s ocorrências:%i\nl = %i e c = %i\n", nomes[i].nome, nomes[i].ocorrencias, nomes[i].pos[0].l,nomes[0].pos[0].c);
 		
 	}
 }
