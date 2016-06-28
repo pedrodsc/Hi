@@ -13,7 +13,17 @@ typedef struct palavra{
 	int custo;
 	unsigned int ocorrencias;
 	coordenada pos[tam];
+	char dir[tam];
 } palavra;
+
+
+void funcaoCusto(struct palavra *nome){
+	int a,b;
+	if (nome->ocorrencias == 0)
+		nome->custo = -1;
+	else
+		nome->custo = nome->ocorrencias*(strlen(nome->nome)-1);
+}
 
 int carregaNaMemoria(FILE *arquivo, char m[tam][tam]){
 	unsigned int numero,i;
@@ -27,22 +37,43 @@ int carregaNaMemoria(FILE *arquivo, char m[tam][tam]){
 	return numero;
 }
 
+int palindromo(char erika[]){ // Retorna 1 para verdade e 0 para falso.
+	int counti, sim = 0,i = 0,k = 0;
+	k = strlen(erika);
+
+	while(i <= k -i -1){
+		if(erika[i] == erika[k-i-2]){
+			sim = 1;
+		}
+		else{
+			sim = 0;
+			break;
+		}
+		i++;
+	}
+	return sim;
+}
+
 void analisa(char matrizCaca[tam][tam], struct palavra *nome, unsigned int tamanho){
-	unsigned int l, c, ci, tamanhoDaPalavra;
+	unsigned int l, c, ci = 0, tamanhoDaPalavra;
 	tamanhoDaPalavra = strlen(nome->nome);
 	printf("Tamanho da palavra - %i\n",tamanhoDaPalavra);
 	
 	// ANALISA DA ESQUERDA PARA A DIREITA.
 	for(l = 0; l < tamanho; l++){
 		for(c = 0; c < tamanho; c++){
-			if(tamanho - c >= tamanhoDaPalavra - 1){
+			if(tamanho - c >= tamanhoDaPalavra -1){
 				while(nome->nome[ci] == matrizCaca[l][c+ci]){
 					ci++;
+					if(ci == tamanho)
+						break;
 				} 
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
 					nome->pos[nome->ocorrencias].l = l;
 					nome->pos[nome->ocorrencias].c = c;
+					nome->dir[nome->ocorrencias] = 'd';
 					nome->ocorrencias++;
+
 				}
 				ci = 0;
 			}
@@ -52,14 +83,18 @@ void analisa(char matrizCaca[tam][tam], struct palavra *nome, unsigned int taman
 	// ANALISA DA DIREITA PARA A ESQUERDA
 	for(l = 0; l < tamanho; l++){
 		for(c = tamanho; c > 0; c--){
-			if(c - tamanho >= tamanhoDaPalavra - 1){
+			if(c - tamanho >= tamanhoDaPalavra - 1 ){
 				while(nome->nome[ci] == matrizCaca[l][c-ci]){
 					ci++;
+					if(ci == tamanho - 1)
+						break;
 				} 
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
 					nome->pos[nome->ocorrencias].l = l;
 					nome->pos[nome->ocorrencias].c = c;
+					nome->dir[nome->ocorrencias] = 'a';
 					nome->ocorrencias++;
+					
 				}
 				ci = 0;
 			}
@@ -69,14 +104,18 @@ void analisa(char matrizCaca[tam][tam], struct palavra *nome, unsigned int taman
 	// ANALISA DE CIMA PARA BAIXO
 	for(c = 0; c < tamanho; c++){
 		for(l = 0; l < tamanho; l++){
-			if(tamanho - l >= tamanhoDaPalavra - 1){
+			if(tamanho - l >= tamanhoDaPalavra -1){
 				while(nome->nome[ci] == matrizCaca[c+ci][l]){
 					ci++;
+					if(ci == tamanho)
+						break;
 				} 
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
 					nome->pos[nome->ocorrencias].l = c;
 					nome->pos[nome->ocorrencias].c = l;
+					nome->dir[nome->ocorrencias] = 's';
 					nome->ocorrencias++;
+
 				}
 				ci = 0;
 			}
@@ -86,20 +125,29 @@ void analisa(char matrizCaca[tam][tam], struct palavra *nome, unsigned int taman
 	// ANALISA DE BAIXO PARA CIMA
 	for(c = 0; c < tamanho; c++){
 		for(l = tamanho; l > 0; l--){
-			if(l - tamanho >= tamanhoDaPalavra - 1){
+			if(l - tamanho >= tamanhoDaPalavra -1){
 				while(nome->nome[ci] == matrizCaca[l-ci][c]){
 					ci++;
+					if(ci == tamanho)
+						break;
 				} 
 				if(ci == tamanhoDaPalavra - 1){ // Menos o \n.
 					nome->pos[nome->ocorrencias].l = l;
 					nome->pos[nome->ocorrencias].c = c;
+					nome->dir[nome->ocorrencias] = 'w';
 					nome->ocorrencias++;
+
 				}
 				ci = 0;
 			}
 		}
 	}
 }
+
+
+
+
+
 
 void retiraEspacos(char m[tam][tam]){
 	char n[tam][tam];

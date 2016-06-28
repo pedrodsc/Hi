@@ -1,30 +1,33 @@
 10
-F H N K P A P E L G
-R I B O S S O M O S
-T V P N Q L E P A P
-A I A R U Y D I F T
-L T P A E Z P N R W
-E O E T I A H E C G
-P R L O J V S C E Q
-A I U S O J A T R I
-P A R U H T R A J I
-I U B O E R E S D E
-
-
-
-F H N K P A P E L G
-R I B O S S O M O S
-T V O N Q M E A N J
-A I N R U Y D I F T
-M T E A E Z P N R W
-P O I T I A H E C G
-A R R O J V S C E Q
-O I U S O J A T R I
-K A R U H T R A J I
-N U B O E R E S D E
+D E P A P E L M L S
+I A P E L S N E D O
+B O M O S S O B P M 
+O I B O S S O M A L
+S A M P S O N P P E
+S O I T A A H E E P
+O R R O P V S C L A
+M I U S E J A T R P
+O A R U L T R A J E
+S O M O S S O B I D
 
 
 
 /*
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+A A A A A A A A A A
+P A P E L A R A R A
+
+
+
+
+
+
 
 
