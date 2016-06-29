@@ -1,0 +1,62 @@
+Inicio do texto
+Custos
+
+ARARA
+ 20
+MACACO
+ -1
+RIBOSSOMOS
+ -1
+GOIABADA
+ -1
+ESTOJO
+ 6
+MOEDA
+ 5
+GATO
+ 8
+SAMBA
+ -1
+GAITA
+ 5
+CELULAR
+ -1
+
+
+d = horizontal-esquerda-direita
+a = horizontal-direita-esquerda
+s = vertical-topo-base
+w = vertical-base-topo
+
+
+0 - ARARA
+ ocorrencias:4
+(1,2) direcao e sentido = d
+(6,3) direcao e sentido = d
+(1,6) direcao e sentido = a
+(6,7) direcao e sentido = a
+1 - MACACO
+ ocorrencias:0
+2 - RIBOSSOMOS
+ ocorrencias:0
+3 - GOIABADA
+ ocorrencias:0
+4 - ESTOJO
+ ocorrencias:1
+(8,9) direcao e sentido = a
+5 - MOEDA
+ ocorrencias:1
+(7,7) direcao e sentido = a
+6 - GATO
+ ocorrencias:2
+(0,0) direcao e sentido = s
+(0,6) direcao e sentido = s
+7 - SAMBA
+ ocorrencias:0
+8 - GAITA
+ ocorrencias:1
+(9,2) direcao e sentido = d
+9 - CELULAR
+ ocorrencias:0
+
+Fim do texto
